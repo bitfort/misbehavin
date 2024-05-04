@@ -17,7 +17,8 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'misbehavin_planner = misbehavin.chat_agent.planner:main'
+            'misbehavin_planner = misbehavin.chat_agent.planner:main',
+            'misbehavin_chatter = misbehavin.chat_agent.chatter:main'
         ]
     }
 )
