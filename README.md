@@ -1,7 +1,14 @@
 # misbehavin
 
-A ragime problem causer.
+A ragime problem causer. 
 
+
+To install,
+
+    python setup.py develop
+
+
+Also - separately, install weave.
 
 
 ## Web Integration
@@ -14,5 +21,13 @@ then:
 
     export RAGTIME_WEB_DRIVER_PATH=/Users/victor/Downloads/geckodriver
 
+
+## Components
+
+### Planner
+
+To see the test plan for a website based on the description, call:
+
+    misbehavin_planner "A chocolate shop"
 
   
