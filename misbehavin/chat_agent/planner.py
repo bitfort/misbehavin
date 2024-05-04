@@ -25,7 +25,7 @@ def main():
 
     result = make_plan_for_website(args.website_desc)
     for i, attempt in enumerate(result.list_of_attempts):
-        print(i, attempt)
+        print(i, attempt.plan_type, attempt.description)
 
 if __name__ == "__main__":
     main()
