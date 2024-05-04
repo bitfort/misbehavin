@@ -29,5 +29,7 @@ then:
 To see the test plan for a website based on the description, call:
 
     misbehavin_planner "A chocolate shop"
+    misbehavin_chatter 'A chocolate shop' 'Get a recommendation.'
+
 
   
