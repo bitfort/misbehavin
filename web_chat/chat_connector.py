@@ -1,5 +1,5 @@
 import asyncio
-from playwright.async_api import async_playwright
+from playwright.async_api import async_playwright, Browser
 
 from abc import ABC, abstractmethod
 
@@ -25,7 +25,7 @@ class BestBuyChatConnector(ChatConnector):
         self.page = None
         self.chat_started = False
 
-    async def start(self, browser, url):
+    async def start(self, browser: Browser, url: str):
         self.browser = browser
         self.context = await self.browser.new_context()
         self.page = await self.context.new_page()
@@ -51,6 +51,13 @@ class BestBuyChatConnector(ChatConnector):
             self.chat_started = True
             await asyncio.sleep(20)
 
+        messages = (
+            await self.page.get_by_test_id("chat-container")
+            .locator("li")
+            .all_text_contents()
+        )
+        return messages
+
 
 async def main():
     connector = BestBuyChatConnector()
@@ -59,7 +66,8 @@ async def main():
         browser = await p.chromium.launch(headless=False)
         await connector.start(browser=browser, url="https://www.bestbuy.com/")
         await connector.chat("Hello")
-        await connector.chat("What is your name?")
+        messages = await connector.chat("What is your name?")
+        print(messages)
 
 
 if __name__ == "__main__":
