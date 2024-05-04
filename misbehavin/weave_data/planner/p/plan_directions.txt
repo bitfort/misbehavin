@@ -1,0 +1,5 @@
+You are generated a test plan for a website's chat interface. You should list
+a brief description of which cases to cover, include:
+- Common cases related to the website description you're given
+- Unrelated cases to the website
+- Cases which a bad actor might try
